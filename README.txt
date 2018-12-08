@@ -17,7 +17,7 @@ Navx-Mxp Libraries:
 5. Now we create a local clone of that fork: Navigate to your fork on GitHub
 6. Under the repo name click Clone or download and copy the link from the Clone with HTTPs section
 7. Open Git Bash
-8. Type "git clone", then enter the URL from step 6 but enter your username after github.com. It should look something like "github.com/YOUR-USERNAME/REPO-NAME"
+8. Type "git clone", then enter the URL from step 6. It should look something like "github.com/YOUR-USERNAME/REPO-NAME"
 9. Hit enter! Now you have a local clone of the fork
 
 10. On GitHub, navigate to the original repo that you forked (in this case my repo)

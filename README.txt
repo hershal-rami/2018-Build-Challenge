@@ -1,4 +1,4 @@
-###Things to Install:
+###Things to Install: test change 1
 JRE (Java Runtime Environment): 
 	If Strings or other basic objects are throwing errors, you are missing a JRE.
 	Once installed, right click on the project folder, click properties, then Java Build Path, then Libraries, and select the JRE System Library and click Apply.

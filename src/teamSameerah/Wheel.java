@@ -26,7 +26,7 @@ public class Wheel implements Runnable {
 	
 	public void run() {
 		while (running) {
-			Wheel.set(1);
+			Wheel.set(-1.0);
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {

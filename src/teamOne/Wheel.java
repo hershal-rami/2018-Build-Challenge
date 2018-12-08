@@ -79,8 +79,8 @@ public class Wheel implements Runnable {
 			 */
 
 			// As an example, this sets the motors to run at half power forever.
-			myWheel.set(-0.90);
-			myWheel2.set(0.90);
+			myWheel.set(-0.9);
+			myWheel2.set(0.9);
 			
 //			try {
 //				Thread.sleep(100);

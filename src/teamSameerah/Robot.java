@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 
 public class Robot extends IterativeRobot {
 	
-	Wheel wheel;
+	Wheel wheel = new Wheel(1);
 	
 	@Override
 	public void robotInit() {
@@ -14,7 +14,7 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void autonomousInit() {
-		wheel = new Wheel(1);
+		wheel.startWheel();
 	}
 
 	@Override
@@ -44,12 +44,13 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void disabledInit() {
-		wheel.stop();
+		if(wheel.getRunning()){
+			wheel.stop();
+		}
 	}
 
 	@Override
 	public void disabledPeriodic() {
-		wheel.stop(); 
 	}
 	
 	// Looks good!

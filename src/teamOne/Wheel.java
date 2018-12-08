@@ -16,14 +16,13 @@ public class Wheel implements Runnable {
 	private Spark myWheel;
 	private Spark myWheel2; 
 
-	private XboxController xbox;
+	//private XboxController xbox;
 	
 	
 	public Wheel(int channelOne, int channelTwo) {
 		myWheel = new Spark(channelOne);
 		myWheel2 = new Spark(channelTwo);
-		xbox = new XboxController(0);
-		startWheel();
+		//xbox = new XboxController(0);
 	}
 
 	/*
@@ -80,14 +79,14 @@ public class Wheel implements Runnable {
 			 */
 
 			// As an example, this sets the motors to run at half power forever.
-			myWheel.set(0.9);
-			myWheel2.set(0.9);
+			myWheel.set(-0.90);
+			myWheel2.set(0.90);
 			
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+//			try {
+//				Thread.sleep(100);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
 		
 			
 			
@@ -99,7 +98,7 @@ public class Wheel implements Runnable {
 			 * a try/catch, which essentially acts as a failsafe if something breaks
 			 */
 			
-			stop();
+			//stop();
 			
 			try {
 				Thread.sleep(100);
@@ -115,6 +114,7 @@ public class Wheel implements Runnable {
 	}
 	
 	public void stop() {
+		running = false;
 		myWheel.set(0);
 		myWheel2.set(0);
 	}

@@ -38,7 +38,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 public class Robot extends IterativeRobot {
 	// This line tells Java that a Wheel object named wheel exists, but it does NOT
 	// actually make the object!!!
-	Wheel wheel;
+	Wheel wheel = new Wheel(1,2);
 
 	/**
 	 * This function is run when the robot is first started up and should be used
@@ -58,8 +58,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		// This line works because of the method overloading from Wheel.java
-		@SuppressWarnings("unused")
-		Wheel wheel2 = new Wheel(2, 3);
+		wheel.startWheel();
 	}
 
 	/**
@@ -93,7 +92,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void testInit() {
-		// This can be left empty
 	}
 
 	/**
@@ -110,7 +108,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void disabledInit() {
-		wheel.stop();
+		if(wheel.getRunning()){
+			wheel.stop();
+		}
 	}
 
 	/**
@@ -118,6 +118,5 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void disabledPeriodic() {
-		wheel.stop(); // I'm not 100% sure if this needs to be here, but better to be safe than sorry
 	}
 }

@@ -6,11 +6,11 @@ public class Wheel implements Runnable {
 
 	private static Spark myWheel;
 	private Boolean running = new Boolean(false);
-	private XboxController xbox = new XboxController(0);;
+	private XboxController xbox; //= new XboxController(0);;
 
 	public Wheel(int portNumber) {
 		myWheel = new Spark(portNumber);
-		startWheel();
+		xbox = new XboxController(0);
 	}
 
 	public void startWheel() {
@@ -26,19 +26,20 @@ public class Wheel implements Runnable {
 	public void run() {
 		while (running) {
 			// This sets speed of the motor that mySpark is connected to in percentage
-			if (xbox.getSingleButtonPress(1)) {
-				myWheel.set(1.0);
-			} else if (xbox.getSingleButtonPress(2)) {
-				myWheel.set(0.5);
-			} else if (xbox.getSingleButtonPress(3)) {
-				myWheel.set(0.25);
-			} else if (xbox.getSingleButtonPress(4)) {
-				myWheel.set(0.0);
-			} else if (xbox.getDPad(0)) {
-				myWheel.set(myWheel.getSpeed() + 0.1);
-			} else if (xbox.getDPad(180)) {
-				myWheel.set(myWheel.getSpeed() - 0.1);
-			}
+			myWheel.set(-1.0);
+//			if (xbox.getSingleButtonPress(1)) {
+//				myWheel.set(-1.0);
+//			} else if (xbox.getSingleButtonPress(2)) {
+//				myWheel.set(-0.5);
+//			} else if (xbox.getSingleButtonPress(3)) {
+//				myWheel.set(-0.25);
+//			} else if (xbox.getSingleButtonPress(4)) {
+//				myWheel.set(0.0);
+//			} else if (xbox.getDPad(0)) {
+//				myWheel.set(myWheel.getSpeed() - 0.1);
+//			} else if (xbox.getDPad(180)) {
+//				myWheel.set(myWheel.getSpeed() + 0.1);
+//			}
 
 			try {
 				Thread.sleep(100);
@@ -53,6 +54,7 @@ public class Wheel implements Runnable {
 	}
 
 	public void stop() {
+		running = false;
 		myWheel.set(0);
 	}
 
